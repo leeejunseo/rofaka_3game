@@ -38,7 +38,7 @@ def main_menu():
     pg.display.set_caption("🎮 게임 선택 메뉴")
     pg.mouse.set_visible(False)
 
-    font = pg.font.Font("NanumGothic.ttf", 60)
+    font = pg.font.Font("TmonMonsori.ttf.ttf", 60)
     clock = pg.time.Clock()
 
     bg_image = pg.image.load("menu_bg.png").convert()
