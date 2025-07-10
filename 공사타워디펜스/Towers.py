@@ -1,7 +1,12 @@
 from Lib import *
 from Effects import *
-from Lib import *
 from Effects import *
+import pygame
+from Lib import (
+    getDistance,
+    GRID_SIZE,
+    ENEMY_KILLED
+)
 
 
 def createTower(pos, tower_choice, tower_models, path, towers):

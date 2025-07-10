@@ -2,6 +2,18 @@ from UI import *
 from Towers import *
 from Wave import *
 from Enemies import *
+from Lib import (
+    BUTTON_COLOUR,
+    TEXT_COLOUR,
+    BUTTON_DISABLED_COLOUR,
+    PATH_COLOUR,
+    MOUSE_SELECTOR_COLOUR,
+    FRAME_COLOUR,
+    STATE_PAUSED,
+    GRID_SIZE,  # ← 이 줄 추가
+    Path
+)
+
 
 class Scene:
     """Abstract class"""
@@ -100,7 +112,7 @@ class Game(Scene):
 
         # Game variables
         self.lives = 0
-        self.money = 99999
+        self.money = 999999
         self.selected_tower = 0
         self.path = Path(PATH_COLOUR,
                          [(1, -1), (1, 5), (4, 5), (4, 1), (6, 1), (6, 5), (8, 5), (8, 1), (17, 1), (17, 5), (14, 5),
@@ -129,7 +141,7 @@ class Game(Scene):
         self.tower_models.append(tower_model)
 
         # 5. 초과벌점 Tower – 빠른 공격 속도
-        tower_model = TowerModel("초과벌점 Tower", 0.2, 10, 1, 120, pygame.Color("ORANGE"), 'assets/tower5.png', "매우 빠른 속도")
+        tower_model = TowerModel("초과벌점 Tower", 0.5, 10, 1, 120, pygame.Color("ORANGE"), 'assets/tower5.png', "매우 빠른 속도")
         self.tower_models.append(tower_model)
 
         # 6. Ice Tower – 적을 느리게 만듦 (슬로우 효과 구현 필요)

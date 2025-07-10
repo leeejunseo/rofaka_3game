@@ -1,4 +1,11 @@
-from Lib import *
+import pygame
+from Lib import (
+    get_korean_font,
+    TEXT_COLOUR,
+    SHOP_BACKGROUND_COLOUR,
+    MOUSE_SELECTOR_COLOUR,
+    adjustCoordsByOffset
+)
 
 
 class Button(pygame.sprite.Sprite):

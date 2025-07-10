@@ -1,9 +1,28 @@
 # 필요한 모듈과 클래스 불러오기
 from Scene import *
-from Lib import *
+from Lib import (
+    STATE_MAIN_MENU,
+    STATE_PRE_WAVE,
+    STATE_WAVE,
+    STATE_GAME_OVER,
+    EVENT_STATE_CHANGED,
+    BACKGROUND_COLOUR,
+    ENEMY_REACHED_END,
+    ENEMY_KILLED,
+    posToGridCoords,
+    gridCoordToPos
+)
 
 # Pygame 초기화
 pygame.init()
+
+try:
+    pygame.mixer.music.load("공군가.mp3")  # 또는 "assets/공군가.mp3"
+    pygame.mixer.music.set_volume(0.5)     # 볼륨 (0.0 ~ 1.0)
+    pygame.mixer.music.play(-1)            # 무한 반복 재생
+except Exception as e:
+    print("배경음악 로딩 실패:", e)
+
 display_info = pygame.display.Info()  # 현재 디스플레이 정보 가져오기
 pygame.display.set_caption("공사타워티펜스")  # 창 제목 설정
 pygame.display.set_icon(pygame.image.load("assets/tower1.png"))  # 아이콘 설정

@@ -5,6 +5,14 @@ import pygame_menu
 # Main Menu
 def mainmenu():
   pygame.init()
+  
+  try:
+    pygame.mixer.music.load("탑건.mp3")  # 경로가 다르면 "audio/탑건.mp3"처럼 수정
+    pygame.mixer.music.set_volume(0.5)
+    pygame.mixer.music.play(-1)  # -1은 무한 반복
+  except Exception as e:
+      print("음악 재생 오류:", e)
+  
   info = pygame.display.Info()
   screenWidth, screenHeight = info.current_w, info.current_h
   surface = pygame.display.set_mode((screenWidth, screenHeight), pygame.FULLSCREEN | pygame.DOUBLEBUF)
@@ -20,8 +28,8 @@ def mainmenu():
     background_color=(0, 0, 0, 0),
     title_background_color=(0, 0, 0),
     widget_padding=25,
-    title_font="fonts/Farenheight.ttf",
-    widget_font="fonts/Farenheight.ttf",
+    title_font="fonts/TmonMonsori.ttf.ttf",
+    widget_font="fonts/TmonMonsori.ttf.ttf",
     widget_background_color=(0, 0, 0),
     title_font_size=64,
     title_offset=(0, 7.5),
@@ -38,9 +46,9 @@ def mainmenu():
   mytheme.background_color = bg
 
   # Menu title and buttons
-  menu = pygame_menu.Menu('War Plane', screenWidth, screenHeight, theme=mytheme)
-  menu.add.button('Play', start_the_game)
-  menu.add.button('Quit',
+  menu = pygame_menu.Menu('탑건 스쿨', screenWidth, screenHeight, theme=mytheme)
+  menu.add.button('플레이', start_the_game)
+  menu.add.button('끄기',
                   pygame_menu.events.EXIT,
                   selection_color=(150, 10, 0))
 
