@@ -42,7 +42,7 @@ class Game:
         self.player.update()
         
         # 점수에 따라 게임 클리어
-        if not self.game_cleared and self.score >= 20:
+        if not self.game_cleared and self.score >= 10:
             self.game_cleared = True
             self.clear_time = pg.time.get_ticks()  # 현재 시각 저장
             self.delete()  # 적 생성 중지
