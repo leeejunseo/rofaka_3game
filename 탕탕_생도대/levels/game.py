@@ -6,6 +6,8 @@ from time import sleep
 
 class Game:
     def __init__(self, main):
+        self.game_cleared = False
+        self.clear_time = None  # 클리어 시각 저장
         self.main = main
         self.player = Player(self)
         self.enemys = list()
@@ -38,7 +40,15 @@ class Game:
 
     def update(self):
         self.player.update()
+        
+        # 점수에 따라 게임 클리어
+        if not self.game_cleared and self.score >= 20:
+            self.game_cleared = True
+            self.clear_time = pg.time.get_ticks()  # 현재 시각 저장
+            self.delete()  # 적 생성 중지
+            print("🎉 게임 클리어!")
 
+        
         for enemy in self.enemys[:]:  # 리스트 수정 방지
             enemy.update()
 
@@ -72,3 +82,10 @@ class Game:
         screen_width = self.main.screen.get_width()
         score_pos = score.get_rect(topright=(screen_width - 20, 50))
         self.main.screen.blit(score, score_pos)
+        
+        # ✅ 게임 클리어 메시지 출력
+        if self.game_cleared:
+            clear_text = self.main.font.render("🎉 CLEARED! 🎉", True, (255, 255, 0))
+            clear_text = pg.transform.scale(clear_text, (700, 300))  # 크게 만들기
+            clear_rect = clear_text.get_rect(center=(self.main.screen.get_width() // 2, self.main.screen.get_height() // 2))
+            self.main.screen.blit(clear_text, clear_rect)
