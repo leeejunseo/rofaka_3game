@@ -116,8 +116,7 @@ class Game(Scene):
         self.selected_tower = 0
         self.path = Path(PATH_COLOUR,
                          [(1, -1), (1, 5), (4, 5), (4, 1), (6, 1), (6, 5), (8, 5), (8, 1), (17, 1), (17, 5), (14, 5),
-                          (14, 8), (17, 8), (17, 11), (12, 11), (12, 8), (9, 8), (9, 11), (7, 11), (7, 8), (5, 8),
-                          (5, 11), (3, 11), (3, 8), (-1, 8)])
+                          (14, 8), (17, 8), (17, 11), (12, 11), (12, 8), (-1, 8)])
         self.wave_handler = WaveHandler(self.path.waypoints[0])
         self.enemies_alive = 0
 
